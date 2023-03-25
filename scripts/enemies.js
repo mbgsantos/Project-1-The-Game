@@ -1,16 +1,23 @@
-class Enemies {
-  constructor(width, height, color) {
-    this.width = width;
-    this.height = height;
-    color = 'red';
+class Enemy {
+  constructor(x, y, vx, vy, radius, color) {
+    this.x = x;
+    this.y = y;
+    this.vx = vx; // velocidade x
+    this.vy = vy; // velocidade y
+    this.radius = radius;
+    this.color = color;
   }
 
-  drawEnemies = () => {
-    this.enemies.forEach(enemies => {
-      enemies.x -= 1;
-      enemies.draw();
-    });
+  draw = () => {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  };
 
-    game.frames += 1;
+  move = () => {
+    this.x += this.vx;
+    this.y += this.vy;
   };
 }

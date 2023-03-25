@@ -1,5 +1,15 @@
-canvas {
-  width: 100%;
-  height: 100%;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#monsters {
+  width: 70%;
+  height: 70%;
   background-color: #faebd7;
+  /* background-image: url('https://i.pinimg.com/564x/8e/5c/db/8e5cdb6a01e19709770881396311f498.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; */
 }

@@ -15,23 +15,23 @@ const player = new Player(100, 400, 0, 2, 0, 50, '/images/Sully-png.png');
 const platform = [
   // array com as plataformas que quisermos criar
   // rgba permite fazer transparências
-  new Platform(35, 690, 1305, 20, 'rgba(0, 0, 0, 0)'),
-  new Platform(190, 465, 335, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(565, 465, 240, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(880, 465, 65, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(1050, 465, 120, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(230, 163, 50, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(230, 348, 50, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(395, 163, 90, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(395, 348, 90, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(610, 163, 50, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(610, 348, 50, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(710, 163, 50, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(710, 348, 50, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(880, 163, 70, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(880, 348, 70, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(1070, 163, 70, 10, 'rgba(0, 0, 0, 0)'),
-  new Platform(1070, 348, 70, 10, 'rgba(0, 0, 0, 0)')
+  new Platform(35, 740, 1305, 20, 'rgba(0, 0, 0, 0)'),
+  new Platform(190, 502, 335, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(565, 502, 240, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(880, 500, 65, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(1050, 500, 120, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(230, 175, 50, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(230, 375, 50, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(395, 175, 90, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(395, 375, 90, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(610, 175, 50, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(610, 375, 50, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(710, 175, 50, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(710, 375, 50, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(880, 175, 70, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(880, 375, 70, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(1070, 175, 70, 10, 'rgba(0, 0, 0, 0)'),
+  new Platform(1070, 375, 70, 10, 'rgba(0, 0, 0, 0)')
   // exemplo de transparência
   // new Platform(1100, 500, 150, 20, 'rgba(255, 255, 255, 0)')
 ];

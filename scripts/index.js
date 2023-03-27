@@ -8,25 +8,42 @@ canvas.height = window.innerHeight;
 
 let gravity = 0.4;
 
-const player = new Player(100, 400, 0, 2, 0, 25, 'green');
+// const player = new Player(100, 400, 0, 2, 0, 25, 'green');
+const player = new Player(100, 400, 0, 2, 0, 50, '/images/Sully-png.png');
 // const platform = new Platform(500, 700, 200, 20, 'blue');
 
 const platform = [
   // array com as plataformas que quisermos criar
   // rgba permite fazer transparências
-  new Platform(200, 100, 150, 20, '#b2c7c8'),
-  new Platform(200, 300, 150, 20, '#b2c7c8'),
-  new Platform(200, 500, 150, 20, 'rgba(255, 255, 255, 0)'),
-  new Platform(200, 700, 150, 20, '#b2c7c8'),
-  new Platform(500, 700, 150, 20, '#b2c7c8'),
-  new Platform(800, 700, 150, 20, '#b2c7c8'),
-  new Platform(1100, 700, 150, 20, '#b2c7c8')
+  new Platform(30, 740, 1305, 20, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(190, 500, 340, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(565, 500, 240, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(880, 500, 90, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(1035, 500, 140, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(230, 175, 70, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(230, 375, 70, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(365, 175, 140, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(365, 375, 140, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(590, 175, 70, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(590, 375, 70, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(710, 175, 70, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(710, 375, 70, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(880, 175, 90, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(880, 375, 90, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(1050, 175, 90, 10, 'rgba(0, 0, 0, 0.5)'),
+  new Platform(1050, 375, 90, 10, 'rgba(0, 0, 0, 0.5)')
+  // exemplo de transparência
+  // new Platform(1100, 500, 150, 20, 'rgba(255, 255, 255, 0)')
 ];
 
 const game = new Game(player);
+const background = new Background('/images/teste.jpg');
 
 updateCanvas = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (background.loaded) {
+    background.draw();
+  }
 
   player.startBottom();
   // platform.detectPlatform();
@@ -39,13 +56,13 @@ updateCanvas = () => {
   player.x += player.vx;
 
   player.draw();
+  // player.updateSprite();
   // platform.draw();
 
   platform.forEach(platform => {
     platform.detectPlatform(); // usa a detectPlatform para detetar as zonas de contacto
     platform.draw(); // cria as plataformas da array platform
   });
-
   let gameOver = false;
 
   game.enemies.forEach(enemy => {
@@ -64,14 +81,22 @@ updateCanvas = () => {
   });
 
   if (gameOver) {
-    ctx.font = '40px Verdana';
-    ctx.fillStyle = 'red';
+    const boxWidth = 500;
+    const boxHeight = 200;
+    const boxX = (canvas.width - boxWidth) / 2;
+    const boxY = (canvas.height - boxHeight) / 2.3;
+
+    // Desenhar Caixa de Game Over
+    ctx.fillStyle = 'rgba(192, 214, 228, 0.8)';
+    ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
+
+    // Criar mensagem
+    ctx.font = '35px Roboto';
+    ctx.fillStyle = 'rgb(107, 119, 127)';
     ctx.textAlign = 'center';
-    ctx.fillText(
-      'We have a 23-19! Prepare for decontamination',
-      canvas.width / 2,
-      canvas.height / 2
-    );
+    ctx.fillText('WE HAVE A 23-19!', canvas.width / 2, canvas.height / 2.4);
+
+    restartButton.style.display = 'inline';
 
     cancelAnimationFrame(gameLoop);
     return;
@@ -91,11 +116,13 @@ document.addEventListener('keydown', event => {
       break;
 
     case 'ArrowRight':
-      player.vx += 3;
+      player.vx += 4;
+      player.updateSprite(); // faz update à sprite animation
       break;
 
     case 'ArrowLeft':
-      player.vx -= 3;
+      player.vx -= 4;
+      player.moveBackwards(); // faz update à sprite animation
       break;
   }
 });
@@ -117,6 +144,8 @@ document.addEventListener('keyup', event => {
 });
 
 restartButton.addEventListener('click', () => {
+  restartButton.style.display = 'none';
+
   // faço reset às propriedades do jogo
   game.frames = 0; // frames do jogo
   game.enemies = []; // inimigos

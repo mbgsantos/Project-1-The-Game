@@ -8,7 +8,7 @@ class Game {
 
     this.enemies = [];
 
-    this.enemyColor = 'red';
+    // this.enemyColor = 'red';
 
     this.enemySpeed = 5;
 
@@ -18,9 +18,11 @@ class Game {
   score = () => {
     this.frames += 1;
     this.currentScore = Math.floor(this.frames / 6);
-    ctx.font = '14px Verdana';
-    ctx.fillStyle = 'purple';
-    ctx.fillText(`Score: ${this.currentScore}`, canvas.width / 2, 50);
+    ctx.font = '20px Roboto';
+    ctx.fillStyle = 'rgb(153, 171, 182)';
+    // texto centrado
+    // ctx.fillText(`Score: ${this.currentScore}`, canvas.width / 2, 50);
+    ctx.fillText(`SCORE: ${this.currentScore}`, 30, 50);
   };
 
   createEnemies = () => {
@@ -40,7 +42,7 @@ class Game {
 
       const vy = 0;
 
-      const enemy = new Enemy(x, y, vx, vy, enemyRadius, this.enemyColor);
+      const enemy = new Enemy(x, y, vx, vy, enemyRadius);
       this.enemies.push(enemy);
     }
   };

@@ -8,7 +8,9 @@ class Enemy {
     this.imagesArray = [
       '/images/rex.png',
       '/images/buzz.png',
-      '/images/burro.png'
+      '/images/burro.png',
+      '/images/potato.png',
+      '/images/alien.png'
     ];
     this.image = new Image();
     this.image.src = this.randomImg();

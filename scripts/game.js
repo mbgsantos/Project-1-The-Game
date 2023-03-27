@@ -22,7 +22,7 @@ class Game {
     ctx.fillStyle = 'rgb(153, 171, 182)';
     // texto centrado
     // ctx.fillText(`Score: ${this.currentScore}`, canvas.width / 2, 50);
-    ctx.fillText(`SCORE: ${this.currentScore}`, 30, 50);
+    ctx.fillText(`SCORE: ${this.currentScore}`, 50, 50);
   };
 
   createEnemies = () => {
